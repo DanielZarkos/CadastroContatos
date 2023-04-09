@@ -10,15 +10,15 @@ export const validateAuthTokenMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  let authorizationToken = req.headers.authorization;
+  let authToken = req.headers.authorization;
 
-  if (!authorizationToken)
+  if (!authToken)
     res.status(401).json({ message: "Missing authorization headers" });
 
-  authorizationToken = authorizationToken?.split(" ")[1];
+  authToken = authToken?.split(" ")[1];
 
   return jwt.verify(
-    authorizationToken!,
+    authToken!,
     process.env.SECRET_KEY!,
     (error, decoded: any) => {
       if (error) {
