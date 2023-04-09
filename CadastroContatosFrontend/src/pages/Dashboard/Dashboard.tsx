@@ -225,7 +225,7 @@ const Dashboard = () => {
           )}
         </div>
       </div>
-      <form className="search-bar">
+      {/* <form className="search-bar">
         <input
           className="input-search"
           type="text"
@@ -234,7 +234,7 @@ const Dashboard = () => {
         <button className="search-button" type="submit">
           Search
         </button>
-      </form>
+      </form> */}
       <div className="slider-container">
         <div className="contacts-container">
           {contacts?.map((contact: IContact) => (

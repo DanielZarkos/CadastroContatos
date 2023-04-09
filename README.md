@@ -1,3 +1,26 @@
+# **Projeto Cadastro de Contatos**
+
+Este é um projeto para o gerenciamento de contatos.
+
+## Como rodar o projeto
+
+## Abra dois terminais, um para executar o backend e outro para o frontend. Certifique-se de ter as dependências instaladas e o arquivo .env preenchido corretamente antes de executar o projeto.
+
+### Backend
+
+No terminal, navegue até a pasta do projeto e execute o comando npm i para instalar as dependências.
+
+- Preencha o arquivo .env seguindo como base o arquivo .envexample.
+- Execute o comando npm run migrate para rodar as migrações do banco de dados.
+- Execute o comando npm run dev para iniciar o servidor.
+- O servidor estará rodando na porta 8080.
+
+### Frontend
+
+- No terminal, navegue até a pasta do projeto e execute o comando npm i para instalar as dependências.
+- Execute o comando npm start para iniciar o servidor do frontend.
+- O servidor estará rodando na porta 3000.
+
 # **API ROUTES**
 
 ## **User Route /user**
@@ -6,7 +29,7 @@
 
 ## 1. Login User
 
-- POST /login
+- POST api/login
 - Authorization: None
 - Content-type: application/json
 
@@ -14,8 +37,8 @@ Request:
 
 ```json
 {
-  "name": "Kenzie",
-  "password": "1234"
+  "email": "johndoe@mail.com",
+  "password": "something123456"
 }
 ```
 
@@ -23,18 +46,19 @@ Request:
 
 ## 2. Create User
 
-- POST /users
+- POST api/users
 - Authorization: None
 - Content-type: application/json
+- Password deve ter o mínimo de 8 dígitos
 
 Request:
 
 ```json
 {
-  "name": "Kenzie",
-  "email": "kenzie@gmail.com",
-  "password": "1234",
-  "phone": "2740028922"
+  "name": "John Doe",
+  "email": "johndoe@mail.com",
+  "phone": "31 3013132132",
+  "password": "something123456"
 }
 ```
 
@@ -42,11 +66,14 @@ Response:
 
 ```json
 {
-  "id": "13d7ef1d-614f-42d1-a9a3-4bc0e8f8cae5",
-  "name": "Kenzie",
-  "email": "kenzie@gmail.com",
-  "phone": "2740028922",
-  "createdAt": "2023-01-31T15:44:28.679Z"
+  "id": 1,
+  "name": "John Doe",
+  "email": "johndoe@mail.com",
+  "password": "You shall never know.",
+  "isActive": true,
+  "phone": "31 3013132132",
+  "createdAt": "2023-04-08T01:22:13.848Z",
+  "contacts": []
 }
 ```
 
@@ -54,7 +81,7 @@ Response:
 
 ## 2.1 List User
 
-- GET /users/account
+- GET api/users
 - Authorization: Bearer Token
 - Content-type: application/json
 - Empty body
@@ -63,12 +90,27 @@ Response:
 
 ```json
 {
-  "id": "13d7ef1d-614f-42d1-a9a3-4bc0e8f8cae5",
-  "name": "Kenzinho",
-  "email": "kenzinho@gmail.com",
-  "phone": "2740028922",
-  "createdAt": "2023-01-31T15:44:28.679Z",
-  "contacts": []
+  "id": 1,
+  "name": "John Doe",
+  "email": "johndoe@mail.com",
+  "password": "",
+  "isActive": true,
+  "phone": "31 3013132132",
+  "createdAt": "2023-04-08T01:22:13.848Z",
+  "contacts": [
+    {
+      "id": 52,
+      "name": "Somer Boder",
+      "email": "somerboder@mail.com",
+      "phone": "21 99672 7139"
+    },
+    {
+      "id": 53,
+      "name": "Another Two",
+      "email": "anothertwo@mail.com",
+      "phone": "21 99666 7669"
+    }
+  ]
 }
 ```
 
@@ -76,7 +118,7 @@ Response:
 
 ## 2.2 Update User
 
-- PATCH /users/account
+- PATCH api/users
 - Authorization: Bearer Token
 - Content-type: application/json
 
@@ -94,7 +136,7 @@ Request:
 
 ## 2.3 Delete User
 
-- DELETE /users/account
+- DELETE api/users
 - Authorization: Bearer Token
 - Content-type: application/json
 - Empty body
@@ -117,9 +159,9 @@ Request:
 
 ```json
 {
-  "name": "Contact",
-  "email": "contact@mail.com",
-  "phone": "2899999999"
+  "name": "Somer Boder",
+  "email": "somerboder@mail.com",
+  "phone": "21 99672 7139"
 }
 ```
 
@@ -127,102 +169,21 @@ Response
 
 ```json
 {
-  "name": "Contact",
-  "email": "contact@mail.com",
-  "phone": "2899999999",
-  "users": {
-    "id": "13d7ef1d-614f-42d1-a9a3-4bc0e8f8cae5",
-    "name": "Kenzinho",
-    "email": "kenzienho@mail.com",
-    "phone": "2740028922",
-    "createdAt": "2023-01-31T15:44:28.679Z",
-    "contacts": []
-  },
-  "id": "f6bb914c-f642-4401-9f36-4598d261dd09",
-  "createdAt": "2023-02-06T21:22:33.206Z"
+  "name": "Somer Boder",
+  "email": "somerboder@mail.com",
+  "phone": "21 99672 7139",
+  "owner": "1",
+  "id": 52
 }
 ```
 
 ---
 
-## 3.1 List Contact
+## 3.1 Delete Contact
 
-- GET /contacts/
-- Authorization: Bearer Token
-- Content-type: application/json
-- Empty body
-
-Response:
-
-```json
-[
-  {
-    "id": "f6bb914c-f642-4401-9f36-4598d261dd09",
-    "name": "Contact",
-    "email": "contact@mail.com",
-    "phone": "2899999999",
-    "createdAt": "2023-02-06T21:22:33.206Z"
-  }
-]
-```
-
----
-
-## 3.2 Update Contact
-
-- PATCH /contacts/:contactId
-- Authorization: Bearer Token
-- Content-type: application/json
-
-Request:
-
-```json
-{
-  "name": "newContact"
-}
-```
-
----
-
-## 3.3 Delete Contact
-
-- DELETE /contacts/:contactId
+- DELETE api/contacts
 - Authorization: Bearer Token
 - Content-type: application/json
 - Empty body
 
 ---
-
-<br>
-
-# **Possible Errors**
-
-- If you do not pass the token in the "Authorization" field
-
-#### Status `401 - UNAUTHORIZED` - "Missing authorization token"
-
-```json
-{
-  "message": "Missing authorization token"
-}
-```
-
-- Create a user with existing email
-
-#### Status `409 - CONFLICT` - Email already exists
-
-```json
-{
-  "message": "This email already exists"
-}
-```
-
-- Login with incorrect email or password
-
-#### Status `403 - FORBIDDEN` - "Invalid user or password"
-
-```json
-{
-  "message": "Invalid user or password"
-}
-```
