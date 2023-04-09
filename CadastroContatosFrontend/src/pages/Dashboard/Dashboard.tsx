@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Dashboard.css";
 import api from "../../services/api";
 import { toast } from "react-toastify";
@@ -19,7 +19,6 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const listContacts = async () => {
-    console.log();
     await api
       .get("/users", {
         headers: {
@@ -28,7 +27,6 @@ const Dashboard = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.contacts);
         setContacts(res.data.contacts);
         setName(res.data.name);
         setEmail(res.data.email);
@@ -49,7 +47,6 @@ const Dashboard = () => {
   }, [token]);
 
   const addContact = async (data: IAddContactForm) => {
-    console.log(data);
     await api
       .post("/users/contact", data, {
         headers: {
@@ -92,7 +89,6 @@ const Dashboard = () => {
   };
 
   const deleteContact = async (contactId: string) => {
-    console.log(contactId);
     await api
       .delete(`/users/contact/${contactId}`, {
         headers: {
@@ -106,7 +102,6 @@ const Dashboard = () => {
         const newContactsList = contacts.filter(
           (contact) => contact.id !== contactId
         );
-        console.log(newContactsList);
         setContacts(newContactsList);
         setIsModalOpen(false);
       })
