@@ -1,11 +1,11 @@
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
-import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { IUserLogin } from "../../interfaces/interfaces";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const navigate = useNavigate();

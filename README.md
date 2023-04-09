@@ -11,6 +11,7 @@ Este é um projeto para o gerenciamento de contatos.
 No terminal, navegue até a pasta do projeto e execute o comando npm i para instalar as dependências.
 
 - Preencha o arquivo .env seguindo como base o arquivo .envexample.
+- No terminal, navegue até a pasta do projeto e execute o comando npm i para instalar as dependências.
 - Execute o comando npm run migrate para rodar as migrações do banco de dados.
 - Execute o comando npm run dev para iniciar o servidor.
 - O servidor estará rodando na porta 8080.
