@@ -1,0 +1,49 @@
+{
+  "name": "desafio_fullstack",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "Daniel <danielzarkos92@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
+    "build": "tsc",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "test": "cross-env NODE_ENV=test jest --verbose",
+    "start": "node src/server.ts",
+    "makemigrations": "typeorm-ts-node-commonjs migration:generate -d ./src/data-source.ts",
+    "migrate": "typeorm-ts-node-commonjs migration:run -d ./src/data-source.ts"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.16",
+    "@types/jest": "^29.4.0",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/supertest": "^2.0.12",
+    "@types/uuid": "^9.0.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "class-transformer": "^0.5.1",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "docker-compose": "^0.23.18",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.10.0",
+    "reflect-metadata": "^0.1.13",
+    "swagger-autogen": "^2.23.0",
+    "swagger-ui-express": "^4.6.0",
+    "ts-node": "^10.9.1",
+    "typeorm": "^0.3.13",
+    "uuid": "^9.0.0",
+    "yup": "^0.32.11"
+  }
+}
