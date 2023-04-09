@@ -42,12 +42,12 @@ const LoginPage = () => {
 
       <form onSubmit={handleSubmit(logInFunction)}>
         <div className="div-for-email-and-password">
-          <span>Email</span>
+          <span>E-mail</span>
           <div>
             <input
               className="password-and-email"
               type="text"
-              placeholder="Digite seu email aqui"
+              placeholder="Digite seu e-mail aqui"
               {...register("email")}
             />
             <p className="error-text">{errors.email?.message}</p>
@@ -55,7 +55,7 @@ const LoginPage = () => {
         </div>
 
         <div className="div-for-email-and-password">
-          <span>Password</span>
+          <span>Senha</span>
           <div>
             <input
               className="password-and-email"

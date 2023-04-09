@@ -56,7 +56,7 @@ export default function Register() {
   return (
     <>
       <div className="container">
-        <h1>Crie sua conta:</h1>
+        <h1>Crie sua conta</h1>
 
         <form onSubmit={handleSubmit(onFormSubmit)}>
           <div className="major">
@@ -73,7 +73,7 @@ export default function Register() {
             </div>
 
             <div className="div-register-login">
-              <span>Email</span>
+              <span>E-mail</span>
               <input
                 className="password-and-email"
                 type="text"
@@ -108,6 +108,16 @@ export default function Register() {
           <div className="div-register-login">
             <button type="submit">Criar Conta</button>
           </div>
+
+          <span className="cadastre-se">Já possui uma conta?</span>
+          <button
+            onClick={() => {
+              navigate("/login");
+            }}
+            className="button-cadastrar"
+          >
+            Clique aqui
+          </button>
         </form>
       </div>
     </>
