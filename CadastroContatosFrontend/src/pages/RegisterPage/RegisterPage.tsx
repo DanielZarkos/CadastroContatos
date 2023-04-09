@@ -1,5 +1,5 @@
-import { useForm } from "react-hook-form";
 import "./RegisterPage.css";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
@@ -22,8 +22,8 @@ export default function Register() {
     email: yup.string().required("Campo obrigatório"),
     password: yup
       .string()
-      .min(8, "Mínimo de 8 dígitos")
-      .required("Campo obrigatório"),
+      .required("Campo obrigatório")
+      .min(8, "Mínimo de 8 dígitos"),
     phone: yup.number().required("Campo obrigatório"),
   });
 
@@ -69,7 +69,9 @@ export default function Register() {
                 placeholder="Digite seu usuário aqui"
                 {...register("name")}
               />
-              <p className="error-text">{errors.name?.message}</p>
+              <div className="error-div">
+                <p className="error-text">{errors.name?.message}</p>
+              </div>
             </div>
 
             <div className="div-register-login">
@@ -80,7 +82,9 @@ export default function Register() {
                 placeholder="Digite seu email aqui"
                 {...register("email")}
               />
-              <p className="error-text">{errors.email?.message}</p>
+              <div className="error-div">
+                <p className="error-text">{errors.email?.message}</p>
+              </div>
             </div>
 
             <div className="div-register-login">
@@ -91,7 +95,9 @@ export default function Register() {
                 placeholder="Digite sua senha aqui"
                 {...register("password")}
               />{" "}
-              <p className="error-text">{errors.password?.message}</p>
+              <div className="error-div">
+                <p className="error-text">{errors.password?.message}</p>
+              </div>
             </div>
 
             <div className="div-register-login">
@@ -102,7 +108,9 @@ export default function Register() {
                 placeholder="Digite seu telefone aqui"
                 {...register("phone")}
               />{" "}
-              <p className="error-text">{errors.email?.message}</p>
+              <div className="error-div">
+                <p className="error-text">{errors.email?.message}</p>
+              </div>
             </div>
           </div>
           <div className="div-register-login">

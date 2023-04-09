@@ -43,26 +43,28 @@ const LoginPage = () => {
       <form onSubmit={handleSubmit(logInFunction)}>
         <div className="div-for-email-and-password">
           <span>E-mail</span>
-          <div>
-            <input
-              className="password-and-email"
-              type="text"
-              placeholder="Digite seu e-mail aqui"
-              {...register("email")}
-            />
+
+          <input
+            className="password-and-email"
+            type="text"
+            placeholder="Digite seu e-mail aqui"
+            {...register("email")}
+          />
+          <div className="error-div">
             <p className="error-text">{errors.email?.message}</p>
           </div>
         </div>
 
         <div className="div-for-email-and-password">
           <span>Senha</span>
-          <div>
-            <input
-              className="password-and-email"
-              type="password"
-              placeholder="Digite seu password aqui"
-              {...register("password")}
-            />
+
+          <input
+            className="password-and-email"
+            type="password"
+            placeholder="Digite seu password aqui"
+            {...register("password")}
+          />
+          <div className="error-div">
             <p className="error-text">{errors.email?.message}</p>
           </div>
         </div>
