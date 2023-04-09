@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
@@ -42,26 +41,30 @@ const LoginPage = () => {
       <h1>Contacts Manager</h1>
 
       <form onSubmit={handleSubmit(logInFunction)}>
-        <div>
+        <div className="div-for-email-and-password">
           <span>Email</span>
-          <input
-            className="password-and-email"
-            type="text"
-            placeholder="Digite seu email aqui"
-            {...register("email")}
-          />
-          <p className="error-text">{errors.email?.message}</p>
+          <div>
+            <input
+              className="password-and-email"
+              type="text"
+              placeholder="Digite seu email aqui"
+              {...register("email")}
+            />
+            <p className="error-text">{errors.email?.message}</p>
+          </div>
         </div>
 
-        <div>
+        <div className="div-for-email-and-password">
           <span>Password</span>
-          <input
-            className="password-and-email"
-            type="password"
-            placeholder="Digite seu password aqui"
-            {...register("password")}
-          />
-          <p className="error-text">{errors.email?.message}</p>
+          <div>
+            <input
+              className="password-and-email"
+              type="password"
+              placeholder="Digite seu password aqui"
+              {...register("password")}
+            />
+            <p className="error-text">{errors.email?.message}</p>
+          </div>
         </div>
         <button type="submit">Entrar</button>
       </form>

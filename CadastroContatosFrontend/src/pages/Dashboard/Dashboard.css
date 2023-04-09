@@ -53,7 +53,6 @@
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
-  justify-content: space-around;
 }
 
 /* Contact Card */
@@ -61,7 +60,6 @@
 .contact-card {
   display: flex;
   background-color: #1e1e1e;
-  width: 250px;
   margin: 10px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);

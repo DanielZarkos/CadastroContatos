@@ -11,6 +11,12 @@ form {
   justify-content: center;
 }
 
+.div-for-email-and-password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .password-and-email {
   width: 300px;
   padding: 10px;

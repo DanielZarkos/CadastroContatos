@@ -11,6 +11,26 @@ form {
   justify-content: center;
 }
 
+.div-register-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.error-text {
+  margin: 0px;
+  margin-bottom: 10px;
+  font-size: 8px;
+  color: rgb(199, 70, 0);
+}
+
+.major {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .password-and-email {
   width: 300px;
   padding: 10px;

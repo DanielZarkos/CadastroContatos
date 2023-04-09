@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import "./RegisterPage.css";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
@@ -55,56 +56,57 @@ export default function Register() {
   return (
     <>
       <div className="container">
-        <h1>Create your account:</h1>
+        <h1>Crie sua conta:</h1>
 
         <form onSubmit={handleSubmit(onFormSubmit)}>
-          <div className="div-register-login">
-            <span>User</span>
-            <input
-              id="user"
-              className="password-and-email"
-              type="text"
-              placeholder="Digite seu usuário aqui"
-              {...register("name")}
-            />
-            <p className="error-text">{errors.name?.message}</p>
-          </div>
+          <div className="major">
+            <div className="div-register-login">
+              <span>Usuário</span>
+              <input
+                id="user"
+                className="password-and-email"
+                type="text"
+                placeholder="Digite seu usuário aqui"
+                {...register("name")}
+              />
+              <p className="error-text">{errors.name?.message}</p>
+            </div>
 
-          <div className="div-register-login">
-            <span>Email</span>
-            <input
-              className="password-and-email"
-              type="text"
-              placeholder="Digite seu email aqui"
-              {...register("email")}
-            />
-            <p className="error-text">{errors.email?.message}</p>
-          </div>
+            <div className="div-register-login">
+              <span>Email</span>
+              <input
+                className="password-and-email"
+                type="text"
+                placeholder="Digite seu email aqui"
+                {...register("email")}
+              />
+              <p className="error-text">{errors.email?.message}</p>
+            </div>
 
-          <div className="div-register-login">
-            <span>Password</span>
-            <input
-              className="password-and-email"
-              type="password"
-              placeholder="Digite seu password aqui"
-              {...register("password")}
-            />{" "}
-            <p className="error-text">{errors.password?.message}</p>
-          </div>
+            <div className="div-register-login">
+              <span>Senha</span>
+              <input
+                className="password-and-email"
+                type="password"
+                placeholder="Digite sua senha aqui"
+                {...register("password")}
+              />{" "}
+              <p className="error-text">{errors.password?.message}</p>
+            </div>
 
-          <div className="div-register-login">
-            <span>Phone Number</span>
-            <input
-              className="password-and-email"
-              type="string"
-              placeholder="Digite seu telefone aqui"
-              {...register("phone")}
-            />{" "}
-            <p className="error-text">{errors.email?.message}</p>
+            <div className="div-register-login">
+              <span>Telefone</span>
+              <input
+                className="password-and-email"
+                type="string"
+                placeholder="Digite seu telefone aqui"
+                {...register("phone")}
+              />{" "}
+              <p className="error-text">{errors.email?.message}</p>
+            </div>
           </div>
-
           <div className="div-register-login">
-            <button type="submit">Entrar</button>
+            <button type="submit">Criar Conta</button>
           </div>
         </form>
       </div>
